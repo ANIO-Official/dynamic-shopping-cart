@@ -21,6 +21,7 @@ header p{
 #main-nav{
     display: flex;
     flex-direction: row;
+    padding-right: 3vw;
 }
 #main-nav a{
     padding: 0 15px;
@@ -74,18 +75,10 @@ input{
     align-items: center;
     padding-right: 15vw;
 }
-#mascot{
-    width: 15vw;
-    height: auto;
-}
+
 #welcomeMsg{
     font-size: 3rem;
 }
-#banner-messages{
-    font-size: 1.3rem;
-    color: rgb(37, 48, 143);
-}
-
 
 #itemInput, #addItemBtn{
     height: 2rem;
@@ -96,4 +89,10 @@ input{
     border: 5px solid rgb(122, 122, 255);
     border-radius: 15px;
     padding-right: 6vw;
+}
+
+#cartTotal{
+    font-weight: bold;
+    font-size: large;
+    color: #104C35;
 }

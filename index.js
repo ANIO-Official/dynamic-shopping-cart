@@ -1,10 +1,12 @@
 //Global & DOM Variables
 const itemInput = document.querySelector("#itemInput")
+let priceInput = document.querySelector('#priceInput')
 const addItemBtn = document.querySelector("#addItemBtn")
-let shoppingList = document.querySelector("#shoppingList")
-
+const cart = document.querySelector("#cart")
+const cartTotal = document.querySelector('#cartTotal')
+let totalPrice = 0.00
 //Event Delegation, mouseover to avoid double click
-shoppingList.addEventListener("mouseover", (event) => {
+cart.addEventListener("mouseover", (event) => {
     //Purchased Toggle
     if (event.target.classList.contains('purchased')) {
         const btn = event.target.closest('button')
@@ -33,9 +35,15 @@ addItemBtn.addEventListener("click", function () {
     item.className = "shopItem"
     item.textContent = itemInput.value
     //creates the buttons for each list item
-    item.innerHTML = `${item.textContent} <button class="purchased">Not Purchased</button>
-    <button class="deleteBtn">Delete Item</button>`
-    shoppingList.appendChild(item)
+    item.innerHTML = `${item.textContent} $${priceInput.value} <button class="purchased">Not Purchased</button>
+    <button class="deleteBtn">-</button>`
+    cart.appendChild(item)
+
+    totalPrice = totalPrice + parseFloat(priceInput.value)
+    cartTotal.textContent = `$${totalPrice}`
+    console.log(`Current Total ${totalPrice}.`)
+
     itemInput.value = "" //clear the input field
-    console.log(`Added ${item.value} to order.`)
+    console.log(`Added ${item} to order.`)
+    
 })

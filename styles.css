@@ -1,0 +1,99 @@
+body{
+    margin: 0;
+    font-family: 'Karla', Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+header{
+    background-color: #104C35;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    height: 62px;
+}
+header p{
+    padding: auto 25px;
+    margin: auto 25px;
+}
+#Company{
+    font-size: 25px;
+    font-family: Kavoon;
+}
+#main-nav{
+    display: flex;
+    flex-direction: row;
+}
+#main-nav a{
+    padding: 0 15px;
+    color: white;
+    text-decoration: none;
+}
+
+main{
+    margin: 50px;
+}
+li{
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    list-style: none;
+}
+.purchased{
+    background-color: rgb(37, 48, 143);
+}
+
+.purchased.true{
+    background-color: green;
+    color: white;
+}
+button{
+    border-radius: 50px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+}
+#addItemBtn{
+    background: linear-gradient(rgb(48, 64, 202), rgb(122, 195, 255));
+}
+.deleteBtn{
+    background: linear-gradient(rgb(202, 48, 48), rgb(119, 11, 11))
+}
+input{
+    padding: 5px 10px;
+}
+#addItem-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+}
+#menu-Area{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 15vw;
+}
+#mascot{
+    width: 15vw;
+    height: auto;
+}
+#welcomeMsg{
+    font-size: 3rem;
+}
+#banner-messages{
+    font-size: 1.3rem;
+    color: rgb(37, 48, 143);
+}
+
+
+#itemInput, #addItemBtn{
+    height: 2rem;
+    width: auto;
+    margin-right: 15px;
+}
+#itemInput{
+    border: 5px solid rgb(122, 122, 255);
+    border-radius: 15px;
+    padding-right: 6vw;
+}

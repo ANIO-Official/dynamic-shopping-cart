@@ -60,9 +60,11 @@ addItemBtn.addEventListener("click", function () {
         //creates the buttons for each list item
         item.innerHTML =
             `${item.textContent} $${item.price}
-    <button class="decrease">-</button>
-    <p class="quantity" style="display: inline;">${item.quantity}</p>
-    <button class="increase">+</button>`
+        <div class="quantity-container">
+        <button class="decrease">-</button>
+        <p class="quantity" style="display: inline;">${item.quantity}</p>
+        <button class="increase">+</button>
+        </div>`
         cart.appendChild(item)
         console.log(`Added ${itemInput.value} to order.`)//check
 
@@ -84,9 +86,11 @@ function updateItemDisplay() {
     for (let item of foodItems) {
         item.innerHTML =
             `${item.item} $${item.price}
-            <button class="decrease">-</button>
-            <p class="quantity" style="display: inline;">${item.quantity}</p>
-            <button class="increase">+</button>`
+        <div class="quantity-container">
+        <button class="decrease">-</button>
+        <p class="quantity" style="display: inline;">${item.quantity}</p>
+        <button class="increase">+</button>
+        </div>`
 
     }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,37 +23,60 @@
     <script defer src="index.js"></script>
 
 </head>
+
 <body>
     <header>
-        <p id="Company">Git Grubs 🍔</p>
-        <p>Add the items...Commit to the Hunger!</p>
-        <nav>
-            <ul id="main-nav">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
-            </ul>
-        </nav>
+        <div id="company-bar">
+            <p id="Company">Git Grubs 🍔</p>
+            <p id="tagline">Add the items...Commit to the Hunger!</p>
+            <nav>
+                <ul id="main-nav">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="user-interaction-bar">
+            <div id="address-container">
+                <img id="address-icon" src="assets/icons/location-1132647.svg" alt="" />
+                <p id="address">Choose Address</p>
+            </div>
+            <input id="resturant-input" type="text" placeholder="Ex: FingerLicker Tenders...">
+            <img id="cart-icon" src="assets/icons/shopping-cart-1105047.svg">
+
+        </div>
     </header>
     <main>
         <div class="resturant-banner"></div>
         <div class="resturant-info">
-            <img class="resturant-pfp" src="assets/images/crayfish-866400_960_720.jpg" alt="A pile of seasoned crayfish and peppers in a porcelain dish.">
+            <img class="resturant-pfp" src="assets/images/crayfish-866400_960_720.jpg"
+                alt="A pile of seasoned crayfish and peppers in a porcelain dish.">
             <h1>Golden Dragon (1180 Hannaway Dr SE)</h1>
         </div>
         <section id="addItem-container">
             <div id="addItem-inputArea">
-                <h2 id="welcomeMsg">Enter your Order</h2>
+                <h2 id="welcomeMsg">What Can I Get You?</h2>
                 <input id="itemInput" type="text" placeholder="mongonlian beef" />
                 <input id="priceInput" type="number" placeholder="10.50">
                 <button id="addItemBtn">Add Item to List</button>
             </div>
             <div id="menu-Area">
                 <div id="menu-container">
-                    <p class="fw-bold">Menu</p>
-                    <div id="menu">
-                        <p>Mongolian Beef $10.50</p>
-                        <p>Sesame Chicken $5.00</p>
-                        <p>Spring Roll (3) $1.50</p>
+                    <p class="fw-bold fs-1">Menu</p>
+                    <div id="menu" class="fw-semibold">
+                        <div>
+                            <p>Mongolian Beef $10.50</p>
+                            <p>Sesame Chicken $10.50</p>
+                            <p>Lunch Special $5.99</p>
+                            <p>EggDrop Soup $3.49</p>
+                        </div>
+                        <div>
+                            <p>Spring Roll (3) $1.50</p>
+                            <p>Egg Roll (2) $1.50</p>
+                            <p>Lemonade $1.00</p>
+                            <p>Canned Soda $0.50</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,8 +91,21 @@
         </section>
     </main>
     <footer>
-        
+        <nav>
+            <ul id="foot-nav">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Donate</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="foot-socials">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+        </div>
     </footer>
-    
+
 </body>
+
 </html>

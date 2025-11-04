@@ -59,7 +59,9 @@ Quick brief about process. Here are my steps/general steps:
 
  1. **How did you dynamically create and append new elements to the DOM?**
 
-  [Answer here]
+  I dynamically created items using the createElement method to create a list item element for each. I then provided each list item element with a shared class name and unique attributes. Next, using a template string, I updated each innerHTML with their information (item name and price) and child elements (quantity buttons & text). All of the list items are then pushed into an array called cartData to be stored into a fragment. That fragment is then attached to the cart (display). 
+
+  Initially I created this by adding individual items one at a time. However, for practice using document fragments, I decided to refactor the code to batch update the cart.
 
  2. **What steps did you take to ensure accurate updates to the total price?**
 
@@ -82,6 +84,10 @@ Quick brief about process. Here are my steps/general steps:
 - [Create a Shopping Cart With Vanilla JavaScript | ES6 | Timestamp: 32:09](https://www.youtube.com/watch?v=UcrypywtAm0) - I got stuck initially trying to figure out how to update my quantity value so I tried to see how other's approached it. I found this video. After watching this, I realized that I should be including a variable to represent the quantity in my template literal. Similar to how he was referencing a variable called number of units.
 
 - [MDN alert()](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert) - For the alert on invalid input.
+
+- [Stack Overflow](https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array-in-javascript) - Helped me better understand how to remove specific data from an array.
+
+- [MDN indexOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) - To find the item in the data array to delete upon reducing quantity to 0.
 
 ## Author
 

@@ -8,6 +8,7 @@ const totalPriceText = document.querySelector('#totalPriceText')
 let totalPrice = 0.00
 let foodItems = document.getElementsByClassName('foodItems')
 
+//message
 //Event Delegation
 cart.addEventListener("click", (event) => {
     //increase quantity btn

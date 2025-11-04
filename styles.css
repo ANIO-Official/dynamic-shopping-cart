@@ -29,9 +29,6 @@ header p{
     text-decoration: none;
 }
 
-main{
-    margin: 50px;
-}
 li{
     font-size: 1.5rem;
     margin-top: 0.5rem;
@@ -41,10 +38,7 @@ li{
     background-color: rgb(37, 48, 143);
 }
 
-/* .purchased.true{
-    background-color: green;
-    color: white;
-} */
+/* Inputs*/
 button{
     border-radius: 50px;
     padding: 5px 10px;
@@ -53,7 +47,7 @@ button{
     border: none;
 }
 #addItemBtn{
-    background: linear-gradient(rgb(48, 64, 202), rgb(122, 195, 255));
+    background-color: #104C35;
 }
 .decrease{
     background: linear-gradient(rgb(202, 48, 48), rgb(119, 11, 11))
@@ -61,12 +55,41 @@ button{
 input{
     padding: 5px 10px;
 }
+
+/*Resturant*/
+.resturant-banner{
+    background-image: url(assets/images/chinese-food-5233512_1920.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 10vw;
+}
+.resturant-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.resturant-pfp{
+    border-radius: 100%;
+    border: 5px solid #FFFFFF;
+    width: 150px;
+    height: 150px;
+    margin-left: 97px;
+    margin-top: -3vw;
+}
+
+/*Main Sections Styling*/
 #addItem-container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-top: 0;
+    margin: 50px;
+}
+#cart-container{
+    margin: 50px;
 }
 #menu-Area{
     display: flex;
@@ -86,7 +109,8 @@ input{
     margin-right: 15px;
 }
 #itemInput{
-    border: 5px solid rgb(122, 122, 255);
+    border: 2px solid #104C35;
+    margin-bottom: 1vw;
     border-radius: 15px;
     padding-right: 6vw;
 }

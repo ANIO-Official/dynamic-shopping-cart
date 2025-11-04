@@ -79,7 +79,9 @@ Quick brief about process. Here are my steps/general steps:
 
 ### Useful resources
 
-- [Name](link) - Description/comment
+- [Create a Shopping Cart With Vanilla JavaScript | ES6 | Timestamp: 32:09](https://www.youtube.com/watch?v=UcrypywtAm0) - I got stuck initially trying to figure out how to update my quantity value so I tried to see how other's approached it. I found this video. After watching this, I realized that I should be including a variable to represent the quantity in my template literal. Similar to how he was referencing a variable called number of units.
+
+- [MDN alert()](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert) - For the alert on invalid input.
 
 ## Author
 

@@ -28,13 +28,13 @@ cart.addEventListener("click", (event) => {
         totalPriceText.textContent = `$${totalPrice.toFixed(2)}`
 
         //adjust final actions based on quantity
-        if(item.quantity > 1){
+        if (item.quantity > 1) {
             item.quantity = item.quantity - 1
             updateItemDisplay()
             console.log(`Updated quantity of ${item.item} | Quantity ${item.quantity}`) //check quantity
             console.log(`Current Total ${totalPrice.toFixed(2)}.`) //check after quantity update
         }
-        else{
+        else {
             console.log(`Removed ${item.item} from cart`) //check quantity
             console.log(`Current Total ${totalPrice.toFixed(2)}.`) //check after quantity update
             item.remove()
@@ -45,30 +45,37 @@ cart.addEventListener("click", (event) => {
 
 //Dynamically added Products
 addItemBtn.addEventListener("click", function () {
-    const item = document.createElement('li')
-    item.className = "foodItems"
-    item.item = itemInput.value //assigns new attribute item with value of item input
-    item.textContent = item.item
-    item.price = priceInput.value //assigns new attribute price with value of price input
-    item.quantity = 1 //assigns new attribute quantity with default value 1
+    if (!itemInput.value || !priceInput.value) {
+        window.alert('Please enter a valid item and price.')
+        console.log('Missing item information. Enter new values to try again.')
+    }
+    else {
+        const item = document.createElement('li')
+        item.className = "foodItems"
+        item.item = itemInput.value //assigns new attribute item with value of item input
+        item.textContent = item.item
+        item.price = priceInput.value //assigns new attribute price with value of price input
+        item.quantity = 1 //assigns new attribute quantity with default value 1
 
-    //creates the buttons for each list item
-    item.innerHTML =
-        `${item.textContent} $${item.price}
+        //creates the buttons for each list item
+        item.innerHTML =
+            `${item.textContent} $${item.price}
     <button class="decrease">-</button>
     <p class="quantity" style="display: inline;">${item.quantity}</p>
     <button class="increase">+</button>`
-    cart.appendChild(item)
-    console.log(`Added ${itemInput.value} to order.`)//check
+        cart.appendChild(item)
+        console.log(`Added ${itemInput.value} to order.`)//check
 
-    //Update the total price
-    totalPrice = totalPrice + parseFloat(item.price)
-    totalPriceText.textContent = `$${totalPrice.toFixed(2)}`
-    console.log(`Current Total ${totalPrice.toFixed(2)}.`)//check
+        //Update the total price
+        totalPrice = totalPrice + parseFloat(item.price)
+        totalPriceText.textContent = `$${totalPrice.toFixed(2)}`
+        console.log(`Current Total ${totalPrice.toFixed(2)}.`)//check
 
-    //Clear all fields
-    itemInput.value = ""
-    priceInput.value = ""
+        //Clear all fields
+        itemInput.value = ""
+        priceInput.value = ""
+    }
+
 
 })
 
@@ -80,6 +87,6 @@ function updateItemDisplay() {
             <button class="decrease">-</button>
             <p class="quantity" style="display: inline;">${item.quantity}</p>
             <button class="increase">+</button>`
-            
+
     }
 }

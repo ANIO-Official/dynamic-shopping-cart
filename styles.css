@@ -37,14 +37,14 @@ li{
     margin-top: 0.5rem;
     list-style: none;
 }
-.purchased{
+.increase{
     background-color: rgb(37, 48, 143);
 }
 
-.purchased.true{
+/* .purchased.true{
     background-color: green;
     color: white;
-}
+} */
 button{
     border-radius: 50px;
     padding: 5px 10px;
@@ -55,7 +55,7 @@ button{
 #addItemBtn{
     background: linear-gradient(rgb(48, 64, 202), rgb(122, 195, 255));
 }
-.deleteBtn{
+.decrease{
     background: linear-gradient(rgb(202, 48, 48), rgb(119, 11, 11))
 }
 input{

@@ -3,31 +3,42 @@ const itemInput = document.querySelector("#itemInput")
 let priceInput = document.querySelector('#priceInput')
 const addItemBtn = document.querySelector("#addItemBtn")
 const cart = document.querySelector("#cart")
-const cartTotal = document.querySelector('#cartTotal')
+const totalPriceText = document.querySelector('#totalPriceText')
 let totalPrice = 0.00
-let cartItem = [] //holds the cart data for each item
-//Event Delegation, mouseover to avoid double click
-cart.addEventListener("mouseover", (event) => {
-    //Purchased Toggle
-    if (event.target.classList.contains('purchased')) {
-        const btn = event.target.closest('button')
-        btn.addEventListener("click", function () {
-            btn.classList.toggle('true') //toggle true in class list on click
-            if (btn.classList.contains('true')) {
-                btn.textContent = "Purchased!" //change text on class true
-            }
-            else { btn.textContent = "Not Purchased" } //changes back to default message
-        })
+let foodItems = document.getElementsByClassName('foodItems')
+
+//Event Delegation
+cart.addEventListener("click", (event) => {
+    //increase quantity btn
+    if (event.target.classList.contains('increase')) {
+        const item = event.target.closest('li')
+        item.quantity = item.quantity + 1  //increase by 1 per click
+        totalPrice = totalPrice + parseFloat(item.price) //update total price data
+        totalPriceText.textContent = `$${totalPrice.toFixed(2)}`
+
+        updateItemDisplay()
+        console.log(`Updated quantity of ${item.item} | Quantity ${item.quantity}`) //check quantity
+        console.log(`Current Total ${totalPrice.toFixed(2)}.`) //check after quantity update
     }
-    //Delete Btn
-    if (event.target.classList.contains('deleteBtn')) {
-        const listItem = event.target.closest('li')
-        const deleteBtn = event.target.closest('button')
-        deleteBtn.addEventListener("click", function () {
-            totalPrice = totalPrice - parseFloat(listItem.price)
-            cartTotal.textContent = `$${totalPrice.toFixed(2)}`
-            listItem.remove()
-        })
+    //Decrease / Delete Btn
+    if (event.target.classList.contains('decrease')) {
+        const item = event.target.closest('li')
+        //Update price data and display
+        totalPrice = totalPrice - parseFloat(item.price)
+        totalPriceText.textContent = `$${totalPrice.toFixed(2)}`
+
+        //adjust final actions based on quantity
+        if(item.quantity > 1){
+            item.quantity = item.quantity - 1
+            updateItemDisplay()
+            console.log(`Updated quantity of ${item.item} | Quantity ${item.quantity}`) //check quantity
+            console.log(`Current Total ${totalPrice.toFixed(2)}.`) //check after quantity update
+        }
+        else{
+            console.log(`Removed ${item.item} from cart`) //check quantity
+            console.log(`Current Total ${totalPrice.toFixed(2)}.`) //check after quantity update
+            item.remove()
+        }
     }
 })
 
@@ -35,25 +46,40 @@ cart.addEventListener("mouseover", (event) => {
 //Dynamically added Products
 addItemBtn.addEventListener("click", function () {
     const item = document.createElement('li')
-    item.className = "shopItem"
-    item.textContent = itemInput.value
-    
-    //creates the buttons for each list item
-    item.innerHTML = `${item.textContent} $${priceInput.value} <button class="purchased">Not Purchased</button>
-    <button class="deleteBtn">-</button>`
+    item.className = "foodItems"
+    item.item = itemInput.value //assigns new attribute item with value of item input
+    item.textContent = item.item
+    item.price = priceInput.value //assigns new attribute price with value of price input
+    item.quantity = 1 //assigns new attribute quantity with default value 1
 
-    item.price = priceInput.value //assigns each item a new attribute called price for referencing.
+    //creates the buttons for each list item
+    item.innerHTML =
+        `${item.textContent} $${item.price}
+    <button class="decrease">-</button>
+    <p class="quantity" style="display: inline;">${item.quantity}</p>
+    <button class="increase">+</button>`
     cart.appendChild(item)
     console.log(`Added ${itemInput.value} to order.`)//check
 
     //Update the total price
-    totalPrice = totalPrice + parseFloat(priceInput.value)
-    cartTotal.textContent = `$${totalPrice.toFixed(2)}`
+    totalPrice = totalPrice + parseFloat(item.price)
+    totalPriceText.textContent = `$${totalPrice.toFixed(2)}`
     console.log(`Current Total ${totalPrice.toFixed(2)}.`)//check
 
     //Clear all fields
     itemInput.value = ""
     priceInput.value = ""
-    
-    
+
 })
+
+//Update item values
+function updateItemDisplay() {
+    for (let item of foodItems) {
+        item.innerHTML =
+            `${item.item} $${item.price}
+            <button class="decrease">-</button>
+            <p class="quantity" style="display: inline;">${item.quantity}</p>
+            <button class="increase">+</button>`
+            
+    }
+}
